@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/steps', (req, res) => {
   const { id } = req.params;
 
-  Schemes.findSteps(id)
+  Schemes.findById(id)
   .then(steps => {
     if (steps.length) {
       res.json(steps);
@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.post('/:id/steps', (req, res) => {
+router.post('/:id/addStep', (req, res) => {
   const stepData = req.body;
   const { id } = req.params; 
 

@@ -25,6 +25,11 @@ async function update(changes, id) {
     return findById(id)
 }
 
+async function addStep(step, id) {
+    const newStep = await db("steps").insert(step).where("scheme_id", id)
+    return newStep
+}
+
 function remove(id) {
     return db("schemes").where({ id }).del()    
 }
@@ -34,5 +39,6 @@ module.exports = {
     findById,
     add,
     update,
-    remove
+    remove,
+    addStep
 }
